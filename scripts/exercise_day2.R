@@ -41,4 +41,4 @@ p3 <- ggplot(data = employee, aes(x = reorder(gender,log(salbegin)),
 patched <- p1/(p2 + p3)
 patched + plot_annotation(tag_levels = 'A')
 
-ggsave(filename = 'three_plots.png', dpi = 300)
+ggsave(filename = 'data/three_plots.png', dpi = 300)
