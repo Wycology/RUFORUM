@@ -13,7 +13,7 @@ p1 <- ggplot(data = employee, aes(salary, salbegin)) +
   labs(title = "Begining salary by salary",
        y = 'Beginning salary in USD',
        x = 'Salary') +
-  theme(text = element_text(size = 20))
+  theme(text = element_text(size = 12))
 
 
 # Two qualitative data (One plotted, other used as fill)
@@ -23,7 +23,7 @@ p2 <- ggplot(data = employee, aes(x = jobcat, fill = gender)) +
   labs(title = "Individuals in job categories by gender",
        y = 'Number of individuals',
        x = 'Job category of the professional') +
-  theme(text = element_text(size = 20))
+  theme(text = element_text(size = 12))
 
 
 
@@ -32,7 +32,7 @@ p2 <- ggplot(data = employee, aes(x = jobcat, fill = gender)) +
 p3 <- ggplot(data = employee, aes(x = reorder(gender,log(salbegin)), 
                             y = log(salbegin))) +
   geom_boxplot() +
-  theme(text = element_text(size = 20)) +
+  theme(text = element_text(size = 12)) +
   labs(title = 'Beginning salary by gender',
        y = "Beginning salary in USD (log)",
        x = "Gender of the professional") 
@@ -41,4 +41,4 @@ p3 <- ggplot(data = employee, aes(x = reorder(gender,log(salbegin)),
 patched <- p1/(p2 + p3)
 patched + plot_annotation(tag_levels = 'A')
 
-ggsave(filename = 'data/three_plots.png', dpi = 300)
+ggsave(filename = 'output/three_plots.png', dpi = 300)
