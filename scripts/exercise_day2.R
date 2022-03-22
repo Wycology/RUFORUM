@@ -16,7 +16,7 @@ p1 <- ggplot(data = employee, aes(salary, salbegin)) +
   theme(text = element_text(size = 20))
 
 
-# Two qualitative data
+# Two qualitative data (One plotted, other used as fill)
 
 p2 <- ggplot(data = employee, aes(x = jobcat, fill = gender)) +
   geom_bar() +
