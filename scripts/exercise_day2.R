@@ -1,4 +1,4 @@
-# Loading libraries
+# Loading the libraries
 library(tidyverse) # Data wrangling and plotting 
 library(patchwork) # Formating plot output
 
