@@ -26,7 +26,6 @@ p2 <- ggplot(data = employee, aes(x = jobcat, fill = gender)) +
   theme(text = element_text(size = 12))
 
 
-
 # Quantitative and Qualitative
 
 p3 <- ggplot(data = employee, aes(x = reorder(gender,log(salbegin)), 
