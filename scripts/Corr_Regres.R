@@ -1,5 +1,4 @@
-
-#LINEAR REGRESSION IN R
+# LINEAR REGRESSION IN R
 
 library(tidyverse)
 library(learnr) 
@@ -61,7 +60,6 @@ egraph +
   labs(title = "Wateruptake is a function of  Fooduptake",
        x = "FoodUptake",
        y = "Wateruptake")
-
 
 #----------------------------------------------------------
 # computation
