@@ -1,7 +1,7 @@
 #######Calculating sample size#######
 rm(list=ls())# clean the environment
 
-install.packages("pwr")
+#install.packages("pwr")
 library(pwr)
 
 #Two techniques 1) without installing any packages, 2) with installing packages
@@ -15,21 +15,21 @@ library(pwr)
 ##Comparing mean between different (independent) groups
 ?power.t.test
 
-power.t.test(delta=0.2, sd=0.5, power=0.8) # by default, it gives you a two.sample
+power.t.test(delta = 0.2, sd = 0.5, power = 0.8) # by default, it gives you a two.sample
 
-power.t.test(delta=0.2, sd=0.5, power=0.8, type="two.sample") 
+power.t.test(delta = 0.2, sd = 0.5, power = 0.8, type = "two.sample") 
 
 
 #Example 
 
-power.t.test(power=0.9,delta=0.3,sd=0.28,type="one.sample") #one sample
+power.t.test(power = 0.9,delta = 0.3,sd = 0.28, type = "one.sample") #one sample
 
 #Aim: to compute the sample size needed to achieve a power of 90% in
 #a study which aims to show a difference in means between two independent groups 
 #assuming that the magnitude of the difference is 0.3 units and 
 #the standard deviation is 0.28 units.
 
-power.t.test(power=0.9,delta=0.3,sd=0.28,type="two.sample") # two sample
+power.t.test(power = 0.9, delta = 0.3, sd = 0.28, type = "two.sample") # two sample
 #Possible conclusion sentence:
 
 #To reach a power of 90% the study should include at least 20
@@ -37,21 +37,18 @@ power.t.test(power=0.9,delta=0.3,sd=0.28,type="two.sample") # two sample
 
 ### For a binary outcome
 
-#Example one
+# Example one
 
-##Comparing two proportions
-power.prop.test(p1=0.6, p2=0.5, power=0.8)
+## Comparing two proportions
+
+power.prop.test(p1 = 0.6, p2 = 0.5, power = 0.8)
 
 #p1 is first proportion with 60%, p2 is second proportion with 50%
 #Conclusion: In order to achieve a power of 80% under the assumed event probabilities
 #the study should include at least 387 subjects in each of the groups.
 
-
-
-
 # Option 2: Using packages
 #use pwr package for esrtimating sample size
-install.packages("pwr")
 library(pwr)
 
 ##### Sample size for a given power######
@@ -115,3 +112,4 @@ power.t.test(n=6,delta=0.3,sd=0.28,type="two.sample")
 ?pwr.anova.test()
 pwr.anova.test(f=0.28,k=4,power=0.80,sig.level=0.05)
 pwr.anova.test(f=0.28,k=4,n=20,sig.level=0.05)
+
