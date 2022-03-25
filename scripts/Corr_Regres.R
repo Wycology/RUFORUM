@@ -15,7 +15,8 @@ library(olsrr)
 
 # setting directory
 
-## dataframe and importing data
+# dataframe and importing data
+
 eggp <- read.csv('data/eggp.csv')
 eggp
 
