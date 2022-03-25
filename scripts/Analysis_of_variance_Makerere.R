@@ -9,96 +9,126 @@ library(multcomp)
 library(ggplot2)
 library(car)
 #libs(agricolae) #gives you all functions in a package
-setwd("~/Desktop/Makerere R Training")
-latinsquare<-read.table("LatinSquare.txt", header = T) #reading data from a file
+#setwd("~/Desktop/Makerere R Training")
+latinsquare <- read.table("data/LatinSquare.txt", header = T) #reading data from a file
 names(latinsquare) #checking the names of the variables
 str(latinsquare) #checking the structure of the data
-latinsquare$Row<-factor(latinsquare$Row, labels = c("cow1", "cow2", "cow3", "cow4","cow5")) #converting row into factor
-latinsquare$Column<-factor(latinsquare$Column, labels =c("milkman1", "milkman2", "milkman3", "milkman4","milkman5") ) #converting column into vector
-latinsquare$Treatment<-factor(latinsquare$Treatment) #converting treatment into vector
-latinsquare$Plot<-factor(latinsquare$Plot) #converting plot into factor
+latinsquare$Row <- factor(latinsquare$Row, 
+                          labels = c("cow1", "cow2", "cow3", "cow4","cow5")) #converting row into factor
+latinsquare$Column <- factor(latinsquare$Column, 
+                             labels = c("milkman1", "milkman2", "milkman3", "milkman4","milkman5")) #converting column into vector
+latinsquare$Treatment <- factor(latinsquare$Treatment) #converting treatment into vector
+latinsquare$Plot <- factor(latinsquare$Plot) #converting plot into factor
 str(latinsquare)
-names(latinsquare)<-c("Datapoint", "Cow","Milkman", "Feed", "Milkyield")
+names(latinsquare) <- c("Cow", "Milkman", "Feed", "Milkyield")
 #Boxplot for milkyield by feed types 
-ggplot(latinsquare,aes(x=Feed,y= Milkyield))+geom_boxplot() #boxplot for Milkyield by Feed type
-ggplot(latinsquare,aes(x=Feed,y= Milkyield))+geom_boxplot() + facet_wrap(~Cow) # per cow
-ggplot(latinsquare,aes(x=Feed,y= Milkyield))+geom_boxplot() + facet_wrap(~Milkman) # per milkman
+ggplot(latinsquare, aes(x = Feed, y = Milkyield)) + 
+  geom_boxplot() #boxplot for Milkyield by Feed type
+ggplot(latinsquare, aes(x = Feed, y = Milkyield)) + 
+  geom_boxplot() + facet_wrap(~Cow) # per cow
+ggplot(latinsquare, aes(x = Feed, y = Milkyield))+
+  geom_boxplot() + facet_wrap(~Milkman) # per milkman
 #point plot
-ggplot(latinsquare,aes(x=Feed,y= Milkyield, color=Cow))+geom_point() #boxplot for Milkyield by Feed type
-ggplot(latinsquare,aes(x=Feed,y= Milkyield, color=Milkman))+geom_point() #boxplot for Milkyield by Feed type
+ggplot(latinsquare, aes(x = Feed, y = Milkyield, color = Cow)) +
+  geom_point() #boxplot for Milkyield by Feed type
+ggplot(latinsquare, aes(x = Feed, y = Milkyield, color = Milkman)) +
+  geom_point() #boxplot for Milkyield by Feed type
 
 #Boxplot for milkyield by Milkman
-ggplot(latinsquare,aes(x=Milkman,y=Milkyield)) +geom_boxplot() 
-ggplot(latinsquare,aes(x=Cow,y=Milkyield))+geom_boxplot() 
+ggplot(latinsquare, aes(x = Milkman, y = Milkyield)) + 
+  geom_boxplot() 
+
+ggplot(latinsquare, aes(x = Cow, y = Milkyield)) +
+  geom_boxplot() 
 
 #analysis option I (Assume experimental units are homogeneous & no milkman effect) - CRD
-model0<-aov(Milkyield~1, latinsquare) #null model
+model0 <- aov(Milkyield~1, latinsquare) #null model
+
 anova(model0)
-model1<-aov(Milkyield~Feed, latinsquare) #analysis as CRD
+
+model1 <- aov(Milkyield~Feed, latinsquare) #analysis as CRD
 anova(model1)
 
-opar<-par( mfrow = c(2,2) )
-plot(model1, which=5)
-plot(model1, which=1)
-plot(model1, which=2)
-plot(residuals(model1) ~ Datapoint, main="Residuals vs Plot", font.main=1,data=latinsquare)
+opar <- par(mfrow = c(2, 2))
+
+plot(model1, which = 5)
+plot(model1, which = 1)
+plot(model1, which = 2)
+plot(residuals(model1) ~ Milkyield, main = "Residuals vs Plot", 
+     font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model1) ~ Feed, main="Residuals per treatment", font.main=1,data=latinsquare)
+boxplot(residuals(model1) ~ Feed, main = "Residuals per treatment", 
+        font.main = 1, data = latinsquare)
+
 abline(h = 0, lty = 2)
-boxplot(residuals(model1) ~ Cow, main="Residuals per Row", font.main=1,data=latinsquare)
+boxplot(residuals(model1) ~ Cow, main = "Residuals per Row", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model1) ~ Milkman, main="Residuals vs Plot", font.main=1,data=latinsquare)
+boxplot(residuals(model1) ~ Milkman, main = "Residuals vs Plot", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
 
-
-obser_fitted_residual<-cbind(latinsquare$Milkyield, model1$fitted.values, model1$residuals) #displaying observed values, fitted values and residuals
-hist(rstudent(model1), probability=T, col="lightgrey", xlim=c(-6,6), ylim=c(0,0.5),breaks=6,
-     main="Distribution of Studentized Residuals",
-     xlab="Studentized residuals")
-xfit=seq(-6,6,length=100)
-yfit=dnorm(xfit)
-lines(xfit, yfit, col="red",lwd=2)
+obser_fitted_residual <- cbind(latinsquare$Milkyield, model1$fitted.values, model1$residuals) #displaying observed values, fitted values and residuals
+hist(rstudent(model1), probability = T, col = "lightgrey", xlim = c(-6, 6), 
+     ylim = c(0, 0.5), breaks = 6,
+     main = "Distribution of Studentized Residuals",
+     xlab = "Studentized residuals")
+xfit = seq(-6, 6, length = 100)
+yfit = dnorm(xfit)
+lines(xfit, yfit, col = "red", lwd = 2)
 #adding row to the model
-model2<-aov(Milkyield~Feed + Cow, latinsquare) #analysis as RCBD with cow as block
+model2 <- aov(Milkyield ~ Feed + Cow, latinsquare) #analysis as RCBD with cow as block
 anova(model2)
-plot(model2, which=5)
-plot(model2, which=1)
-plot(model2, which=2)
-plot(residuals(model2) ~ Datapoint, main="Residuals vs Datapoint", font.main=1,data=latinsquare)
+
+plot(model2, which = 5)
+plot(model2, which = 1)
+plot(model2, which = 2)
+plot(residuals(model2) ~ Datapoint, main = "Residuals vs Datapoint", 
+     font.main = 1, data = latinsquare)
+
 abline(h = 0, lty = 2)
-boxplot(residuals(model2) ~ Feed, main="Residuals per Feed", font.main=1,data=latinsquare)
+boxplot(residuals(model2) ~ Feed, main = "Residuals per Feed", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model2) ~ Cow, main="Residuals per Cow", font.main=1,data=latinsquare)
+boxplot(residuals(model2) ~ Cow, main = "Residuals per Cow", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model2) ~ Milkman, main="Residuals vs Milkman", font.main=1,data=latinsquare)
+boxplot(residuals(model2) ~ Milkman, main = "Residuals vs Milkman", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
 
-fitvalue_model2<-model2$fitted.values
-obser_fitted_residual2<-cbind(latinsquare$Milkyield, model2$fitted.values, model2$residuals) #displaying observed values, fitted values and residuals
-hist(rstudent(model2), probability=T, col="lightgrey", xlim=c(-6,6), ylim=c(0,0.5),breaks=6,
-     main="Distribution of Studentized Residuals",
-     xlab="Studentized residuals")
-xfit=seq(-6,6,length=100)
-yfit=dnorm(xfit)
-lines(xfit, yfit, col="red",lwd=2)
+fitvalue_model2 <- model2$fitted.values
+obser_fitted_residual2 <- cbind(latinsquare$Milkyield, model2$fitted.values,model2$residuals) #displaying observed values, fitted values and residuals
+hist(rstudent(model2), probability = T, col = "lightgrey", 
+     xlim = c(-6, 6), ylim = c(0, 0.5), breaks = 6,
+     main = "Distribution of Studentized Residuals",
+     xlab = "Studentized residuals")
+xfit = seq(-6, 6, length = 100)
+yfit = dnorm(xfit)
+lines(xfit, yfit, col = "red", lwd = 2)
 
 #model with treatment and column effect
-model3<-aov(Milkyield~Feed + Milkman, latinsquare) #analysis as RCBD with Column as block
+model3 <- aov(Milkyield ~ Feed + Milkman, latinsquare) #analysis as RCBD with Column as block
 anova(model3)
-plot(model3, which=5)
-plot(model3, which=1)
-plot(model3, which=2)
-plot(residuals(model3) ~ Datapoint, main="Residuals vs Plot", font.main=1,data=latinsquare)
+plot(model3, which = 5)
+plot(model3, which = 1)
+plot(model3, which = 2)
+plot(residuals(model3) ~ Datapoint, main = "Residuals vs Plot", 
+     font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model3) ~ Feed, main="Residuals per Feed", font.main=1,data=latinsquare)
+boxplot(residuals(model3) ~ Feed, main = "Residuals per Feed", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model3) ~ Cow, main="Residuals per Cow", font.main=1,data=latinsquare)
+boxplot(residuals(model3) ~ Cow, main = "Residuals per Cow", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
-boxplot(residuals(model3) ~ Milkman, main="Residuals vs Milkman", font.main=1,data=latinsquare)
+boxplot(residuals(model3) ~ Milkman, main = "Residuals vs Milkman", 
+        font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
 
-obser_fitted_residual3<-cbind(latinsquare$Milkyield, model3$fitted.values, model3$residuals) #displaying observed values, fitted values and residuals
-hist(rstudent(model2), probability=T, col="lightgrey", xlim=c(-6,6), ylim=c(0,0.5),breaks=6,
+obser_fitted_residual3 <- cbind(latinsquare$Milkyield, model3$fitted.values, model3$residuals) #displaying observed values, fitted values and residuals
+hist(rstudent(model2), probability = T, col = "lightgrey", xlim = c(-6,6), 
+     ylim = c(0,0.5),breaks=6,
      main="Distribution of Studentized Residuals",
      xlab="Studentized residuals")
 xfit=seq(-6,6,length=100)
