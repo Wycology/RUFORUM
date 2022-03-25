@@ -91,13 +91,15 @@ yfit = dnorm(xfit)
 
 lines(xfit, yfit, col = "red", lwd = 2)
 
+
+
 model2 <- aov(Milkyield ~ Feed + Cow, latinsquare)
 anova(model2)
 
 plot(model2, which = 5)
 plot(model2, which = 1)
 plot(model2, which = 2)
-plot(residuals(model2) ~ Datapoint, main = "Residuals vs Datapoint", 
+plot(residuals(model2) ~ Milkyield, main = "Residuals vs Datapoint", 
      font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
 
@@ -132,7 +134,7 @@ anova(model3)
 plot(model3, which = 5)
 plot(model3, which = 1)
 plot(model3, which = 2)
-plot(residuals(model3) ~ Datapoint, main = "Residuals vs Plot", 
+plot(residuals(model3) ~ Milkyield, main = "Residuals vs Plot", 
      font.main = 1, data = latinsquare)
 abline(h = 0, lty = 2)
 
@@ -324,3 +326,4 @@ SNK.test(attractmodel3, "alchol", console = T)
 
 # Plotting interaction
 plot(attractmodel3)
+
