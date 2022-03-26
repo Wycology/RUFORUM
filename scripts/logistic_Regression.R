@@ -1,5 +1,5 @@
-#rm(list=ls())
-#LOGISTIC REGRESSION
+# LOGISTIC REGRESSION
+
 library(tidyverse)
 library(learnr) 
 library(dplyr)
@@ -8,7 +8,9 @@ library(readr)
 library(ggpubr)
 library(ggplot2)
 library(Hmisc)
-library(caret) #logistic regression
+library(caret) 
+
+# Logistic regression
 
 graduate <- read.csv("data/mydata.csv")
 
