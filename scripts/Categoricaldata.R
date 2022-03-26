@@ -33,7 +33,7 @@ mytable <- table(salaries$rank, salaries$salarycat)
 
 mytable
 
-addmargins(mytable, margin=c(1,2))
+addmargins(mytable, margin = c(1, 2))
 
 prop.table(mytable)
 
