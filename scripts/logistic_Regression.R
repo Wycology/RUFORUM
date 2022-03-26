@@ -10,34 +10,33 @@ library(ggplot2)
 library(Hmisc)
 library(caret) #logistic regression
 
-# Reading data into R 
-setwd("C:/Users/hnama/Desktop/MAK_TRAINING_IN R_2022/MAK_DAY6.26.3.22/Logistic Regression")
-
-graduate<-read.csv("mydata.csv")
+graduate <- read.csv("data/mydata.csv")
 
 head(graduate)
 
 str(graduate)
 
-graduate$admit <-as.factor(graduate$admit)
+graduate$admit <- as.factor(graduate$admit)
 
-graduate$rank <-as.factor(graduate$rank)
+graduate$rank <- as.factor(graduate$rank)
 
 str(graduate)
-
 
 summary(graduate)
 
 ## two-way contingency table of categorical outcome and predictors we want
 ## to make sure there are not 0 cells
+
 table(graduate$admit, graduate$rank)
 
-#or
+# or
 
 xtabs(~admit + rank, data = graduate)
 
 str(graduate)
+
 #simple logistic regression model
+
 logit1 <- glm(admit ~ gre, data = graduate, family = "binomial") # with continuous variable
 
 summary(logit1)
@@ -58,18 +57,21 @@ summary(mylogit)
 
 
 ## CIs using profiled log-likelihood
+
 confint(mylogit)
 
 ## odds ratios only
+
 exp(coef(mylogit))
 
 ## odds ratios and 95% CI
+
 exp(cbind(OR = coef(mylogit), confint(mylogit)))
 
 
 
-#Note
-#Empty cells or small cells: You should check for empty or small cells by doing
-#a crosstab between categorical predictors and the outcome variable. 
-#If a cell has very few cases (a small cell), the model may become unstable
-#or it might not run at all
+# Note
+# Empty cells or small cells: You should check for empty or small cells by doing
+# a crosstab between categorical predictors and the outcome variable. 
+# If a cell has very few cases (a small cell), the model may become unstable
+# or it might not run at all
