@@ -61,7 +61,7 @@ summary(fit)
 #into consideration three variables only viz.
 #Endemics, Area, and Nearest.
 
-fit.reduced<-glm(Species~Endemics+Area+Nearest, data=gala, family=poisson())
+fit.reduced <- glm(Species ~ Endemics + Area + Nearest, data = gala, family = poisson())
 summary(fit.reduced)
 
 #The output produces deviances, regression parameters,
@@ -98,8 +98,8 @@ exp(coef(fit.reduced))
 
 install.packages("qcc")
 library(qcc)
-qcc.overdispersion.test(gala$Species, type="poisson")
+qcc.overdispersion.test(gala$Species, type = "poisson")
 
 
-fit.od<-glm(Species~Endemics+Area+Nearest, data=gala, family=quasipoisson())
+fit.od <- glm(Species ~ Endemics + Area + Nearest, data = gala, family = quasipoisson())
 summary(fit.od)
