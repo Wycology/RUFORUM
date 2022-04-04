@@ -36,7 +36,7 @@ summary(gala)
 # generate a histogram for Species in order to check if 
 #the variable follows the Poisson distribution
 
-hist(gala$Species, breaks=10, xlab ="Species Count", main="Distribution of Species", Prob=TRUE)
+hist(gala$Species, breaks = 10, xlab = "Species Count", main="Distribution of Species", Prob=TRUE)
 #The above visualization shows that Species follows a Poisson distribution,
 #as the data is right-skewed. 
 
