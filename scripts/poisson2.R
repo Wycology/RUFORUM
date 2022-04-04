@@ -16,7 +16,7 @@ write.csv(gala, file = "gala.csv") # exporting data
 #set working directory
 setwd("C:/Users/hnama/Desktop/MAK_TRAINING_IN R_2022/MAK_DAY6.26.3.22/Poisson")
 
-gala<- read.csv("gala.csv")
+gala <- read.csv("gala.csv")
 
 print(head(gala))
 
