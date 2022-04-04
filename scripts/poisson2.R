@@ -47,7 +47,7 @@ boxplot(gala$Species, main = "Boxplot of Species")
 ###MORE TO MORE ADDITIONAL NOTES#######
 
 #Create a poisson model
-fit<-glm(Species~Endemics+Area+Elevation+Nearest+Scruz+Adjacent, 
+fit<-glm(Species ~ Endemics+Area+Elevation+Nearest+Scruz+Adjacent, 
          data=gala, family=poisson())
 summary(fit)
 
