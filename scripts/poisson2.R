@@ -42,7 +42,7 @@ hist(gala$Species, breaks=10, xlab ="Species Count", main="Distribution of Speci
 
 #We can generate a boxplot too, to get more insight 
 #into the distribution pattern
-boxplot(gala$Species, main="Boxplot of Species")
+boxplot(gala$Species, main = "Boxplot of Species")
 
 ###MORE TO MORE ADDITIONAL NOTES#######
 
