@@ -48,7 +48,7 @@ boxplot(gala$Species, main = "Boxplot of Species")
 
 #Create a poisson model
 fit <- glm(Species ~ Endemics + Area + Elevation + Nearest + Scruz + Adjacent, 
-         data =gala, family=poisson())
+         data = gala, family = poisson())
 summary(fit)
 
 #Based on the above analysis, we find that variables Endemics,
