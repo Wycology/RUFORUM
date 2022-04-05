@@ -25,7 +25,7 @@ salaries$sex <- as.factor(salaries$sex)
 # Recording an existing variable
 summary(salaries$salary)
 
-salaries$salarycat <- ifelse(salaries$salary < 113706, c("low"), c("high"))
+salaries$salarycat <- ifelse(salaries$salary < 113706, "low", "high")
 
 head(salaries)
 
