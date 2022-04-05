@@ -70,8 +70,6 @@ exp(coef(mylogit))
 
 exp(cbind(OR = coef(mylogit), confint(mylogit)))
 
-
-
 # Note
 # Empty cells or small cells: You should check for empty or small cells by doing
 # a crosstab between categorical predictors and the outcome variable. 
