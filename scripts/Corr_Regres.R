@@ -159,7 +159,7 @@ mod <- lm(Uptake~ Time + Species1, data = uptake)
 summary(mod)
 
 #----------------------------------------------------------------
-#polynomial regression
+# Polynomial regression
 hard <- read.csv("data/polyreg.csv")
 hard
 colnames(hard)
