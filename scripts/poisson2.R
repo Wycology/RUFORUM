@@ -16,7 +16,6 @@ summary(gala)
 
 hist(gala$Species, breaks = 10, xlab = "Species Count", main = "Distribution of Species")
 
-
 boxplot(gala$Species, main = "Boxplot of Species")
 
 boxplot(log(gala$Species), main = "Boxplot of natural log of Species")
