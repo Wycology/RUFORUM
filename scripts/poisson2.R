@@ -19,7 +19,7 @@ boxplot(gala$Species, main = "Boxplot of Species")
 
 boxplot(log(gala$Species), main = "Boxplot of natural log of Species")
 
-###MORE TO MORE ADDITIONAL NOTES#######
+### MORE TO MORE ADDITIONAL NOTES #######
 
 # Create a poisson model
 fit <- glm(Species ~ Endemics + Area + Elevation + Nearest + Scruz + Adjacent, 
@@ -35,7 +35,7 @@ summary(fit)
 fit.reduced <- glm(Species ~ Endemics + Area + Nearest, data = gala, family = poisson())
 summary(fit.reduced)
 
-# The output produces deviances, regression parameters,
+# The output produces deviance, regression parameters,
 # and standard errors. We can see that each of the parameters
 # is significant at p < 0.05 level
 
