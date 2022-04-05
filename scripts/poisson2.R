@@ -51,7 +51,6 @@ coef(fit.reduced)
 # The intercept is a log mean number of Species
 # when each of the predictors equals zero.
 
-##### Step 10
 # However, it is much easier to interpret the regression 
 # coefficients in the original scale of the dependent variable
 # (number of Species, rather than log number of Species). 
