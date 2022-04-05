@@ -34,11 +34,6 @@ summary(fit)
 # their inclusion is sufficient to build the 
 # right Poisson regression model. as there p-values < 0.05
 
-#Next
-#We'll build a modified Poisson regression model taking 
-#into consideration three variables only viz.
-#Endemics, Area, and Nearest.
-
 fit.reduced <- glm(Species ~ Endemics + Area + Nearest, data = gala, family = poisson())
 summary(fit.reduced)
 
