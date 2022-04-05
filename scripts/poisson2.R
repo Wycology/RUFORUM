@@ -41,24 +41,24 @@ summary(fit.reduced)
 # and standard errors. We can see that each of the parameters
 # is significant at p < 0.05 level
 
-## Interpreting coefficients#############
+## Interpreting coefficients #############
 coef(fit.reduced)
 
-#In Poisson regression, the dependent variable is modeled as
-#the log of the conditional mean loge(l). 
-#The regression parameter of 0.0355 for Endemics
-#indicates that a one-unit increase in the variable 
-#is associated with a 0.04 increase in the log mean number of Species,
-#holding other variables constant. 
-#The intercept is a log mean number of Species
-#when each of the predictors equals zero.
+# In Poisson regression, the dependent variable is modeled as
+# the log of the conditional mean loge(l). 
+# The regression parameter of 0.0355 for Endemics
+# indicates that a one-unit increase in the variable 
+# is associated with a 0.04 increase in the log mean number of Species,
+# holding other variables constant. 
+# The intercept is a log mean number of Species
+# when each of the predictors equals zero.
 
-#####Step 10
-#However, it is much easier to interpret the regression 
-#coefficients in the original scale of the dependent variable
-#(number of Species, rather than log number of Species). 
-#The exponentiation of the coefficients will allow an easy 
-#interpretation. This is done as follows.
+##### Step 10
+# However, it is much easier to interpret the regression 
+# coefficients in the original scale of the dependent variable
+# (number of Species, rather than log number of Species). 
+# The exponentiation of the coefficients will allow an easy 
+# interpretation. This is done as follows.
 exp(coef(fit.reduced))
 
 #From the above findings, we can say that one unit increase
