@@ -32,7 +32,7 @@ summary(fit)
 # Based on the above analysis, we find that variables Endemics,
 # Area, and Nearest are significant and only
 # their inclusion is sufficient to build the 
-#right Poisson regression model. as there p-values < 0.05
+# right Poisson regression model. as there p-values < 0.05
 
 #Next
 #We'll build a modified Poisson regression model taking 
