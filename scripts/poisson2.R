@@ -61,13 +61,13 @@ coef(fit.reduced)
 # interpretation. This is done as follows.
 exp(coef(fit.reduced))
 
-#From the above findings, we can say that one unit increase
-#in Area multiples the expected number of species by 0.9999,
-#and a unit increase in the number of endemic species represented
-#by Endemics multiplies the number of species by 1.0361.
-#The most important aspect of Poisson regression is that
-#exponentiated parameters have a multiplicative rather
-#than an additive effect on the response variable.
+# From the above findings, we can say that one unit increase
+# in Area multiples the expected number of species by 0.9999,
+# and a unit increase in the number of endemic species represented
+# by Endemics multiplies the number of species by 1.0361.
+# The most important aspect of Poisson regression is that
+# exponentiated parameters have a multiplicative rather
+# than an additive effect on the response variable.
 
 qcc.overdispersion.test(gala$Species, type = "poisson")
 
