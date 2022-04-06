@@ -16,7 +16,7 @@ summary(statedata)
 g <- lm(Life.Exp ~., data = statedata)
 summary(g)
 
-# using olsrr with forward elimination
+# using olsrr with forward eliminati
 
 forward <- ols_step_forward_p(g, penter = 0.05)
 forward
