@@ -44,6 +44,7 @@ both.aic <- ols_step_both_aic(g, details = TRUE)
 both.aic
 
 # using option all subsets possible
+
 all <- ols_step_all_possible(g)
 all
 
