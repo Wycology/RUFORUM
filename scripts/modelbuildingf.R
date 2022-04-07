@@ -1,9 +1,3 @@
-library(tidyverse)
-library(learnr) 
-library(readxl)
-library(ggpubr)
-library(Hmisc)
-library(gmodels)
 library(olsrr)
 library(faraway)
 
@@ -19,7 +13,7 @@ summary(g)
 forward <- ols_step_forward_p(g, penter = 0.05)
 forward
 
-# using aic
+# Using aic
 
 forward <- ols_step_forward_aic(g, detail = TRUE)
 forward
@@ -49,6 +43,7 @@ all <- ols_step_all_possible(g)
 all
 
 # Creating a data frame for results
+
 as.data.frame(all)
 
 # To obtain plots of mallow's cp and other indices
