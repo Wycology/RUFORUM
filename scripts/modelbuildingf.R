@@ -33,7 +33,7 @@ back.p
 back.aic <- ols_step_backward_aic(g, details = TRUE)
 back.aic
 
-# stepwise method
+# Stepwise method
 
 both.p <- ols_step_both_p(g, pent = 0.05, prem = 0.05)
 both.p
