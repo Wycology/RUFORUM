@@ -48,7 +48,7 @@ both.aic
 all <- ols_step_all_possible(g)
 all
 
-# creating a data frame for results
+# Creating a data frame for results
 as.data.frame(all)
 
 # to obtain plots of mallow's cp and other indices
