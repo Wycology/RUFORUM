@@ -38,7 +38,7 @@ back.aic
 both.p <- ols_step_both_p(g, pent = 0.05, prem = 0.05)
 both.p
 
-# using aic
+# sing aic
 
 both.aic <- ols_step_both_aic(g, details = TRUE)
 both.aic
