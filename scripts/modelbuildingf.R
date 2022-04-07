@@ -51,7 +51,8 @@ all
 # Creating a data frame for results
 as.data.frame(all)
 
-# to obtain plots of mallow's cp and other indices
+# To obtain plots of mallow's cp and other indices
+
 plot(all)
 
 # using the best subset regression
