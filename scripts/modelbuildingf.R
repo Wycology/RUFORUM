@@ -55,7 +55,7 @@ as.data.frame(all)
 
 plot(all)
 
-# using the best subset regression
+# Using the best subset regression
 
 best <- ols_step_best_subset(g)
 best
