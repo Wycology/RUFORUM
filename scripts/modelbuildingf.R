@@ -57,4 +57,3 @@ plot(all)
 
 best <- ols_step_best_subset(g)
 best
-
