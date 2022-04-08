@@ -14,6 +14,7 @@ salaries$sex <- as.factor(salaries$sex)
 ##ANALYSIS OF CATEGORICAL DATA########
 
 # Recording an existing variable
+
 summary(salaries$salary)
 
 salaries$salarycat <- ifelse(salaries$salary < 113706, "low", "high")
