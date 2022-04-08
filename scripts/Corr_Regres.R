@@ -1,15 +1,7 @@
 # LINEAR REGRESSION IN R
 
-library(tidyverse)
-library(learnr) 
-library(dplyr)
-library(readxl)
-library(readr)
 library(ggpubr)
 library(ggplot2)
-library(Hmisc)
-library(gmodels)
-library(olsrr)
 
 # Linear Regression: Equation of a line
 
