@@ -1,5 +1,6 @@
 library(faraway)
 library(qcc)
+
 data("gala")
 
 write.csv(gala, file = "data/gala.csv") # exporting data
