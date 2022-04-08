@@ -143,7 +143,6 @@ uptake <- read.csv("data/indicator.csv")
 uptake
 
 uptake$Species1 <- ifelse(uptake$Species == "pinusc", 0, 1)
-View(uptake)
 
 colnames(uptake)
 plot(Uptake ~ Time, data = uptake)
@@ -166,7 +165,6 @@ plot(mod1)
 
 # Quadratic regression
 hard$hwcont <- (hard$HWconcn.X.)^2
-View(hard)
 
 mod2 <- lm(Tensiles.Y.~ HWconcn.X. + hwcont, data = hard)
 summary(mod2)
