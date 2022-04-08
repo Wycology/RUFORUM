@@ -11,7 +11,7 @@ salaries$sex <- as.factor(salaries$sex)
 
 #----------------------------------------------------------
 
-##ANALYSIS OF CATEGORICAL DATA########
+## ANALYSIS OF CATEGORICAL DATA ########
 
 # Recording an existing variable
 
