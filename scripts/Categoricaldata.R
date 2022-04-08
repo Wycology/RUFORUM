@@ -1,4 +1,4 @@
-#Analysis of categorical data
+# Analysis of categorical data
 
 salaries <- read.csv("data/WorkSalaries.csv")
 str(salaries)
