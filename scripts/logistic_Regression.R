@@ -1,17 +1,5 @@
 # LOGISTIC REGRESSION
 
-library(tidyverse)
-library(learnr) 
-library(dplyr)
-library(readxl)
-library(readr)
-library(ggpubr)
-library(ggplot2)
-library(Hmisc)
-library(caret) 
-
-# Logistic regression
-
 graduate <- read.csv("data/mydata.csv")
 
 head(graduate)
