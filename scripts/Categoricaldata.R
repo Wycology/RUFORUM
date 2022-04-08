@@ -1,14 +1,5 @@
 #Analysis of categorical data
 
-library(tidyverse)
-library(dplyr)
-library(readxl)
-library(readr)
-library(ggpubr)
-library(ggplot2)
-library(Hmisc)
-
-
 salaries <- read.csv("data/WorkSalaries.csv")
 str(salaries)
 
