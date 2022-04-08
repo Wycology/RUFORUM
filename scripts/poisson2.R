@@ -1,8 +1,3 @@
-#rm(list=ls())
-library(tidyverse)
-library(readxl)
-library(ggpubr)
-library(Hmisc)
 library(faraway)
 library(qcc)
 data("gala")
