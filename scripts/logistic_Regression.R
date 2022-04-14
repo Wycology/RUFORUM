@@ -31,7 +31,7 @@ logit1 <- glm(admit ~ gre, data = graduate, family = "binomial") # with continuo
 
 summary(logit1)
 
-#log-odds=-2.901344+ 0.003582*gre
+# log-odds=-2.901344+ 0.003582*gre
 
 logit2 <- glm(admit ~ rank, data = graduate, family = "binomial") # with categorical variable
 
