@@ -69,7 +69,7 @@ summary(model)
 model2 <- aov(Wateruptake ~ Fooduptake, data = eggp)
 summary(model2)
 
-# b0=-63.513, b1=2.733
+# b0 =-63.513, b1=2.733
 # regression equation would be Wateruptake=-63.513+2.733*Fooduptake
 # the intercept (b0) is -63.513. It can be interpreted 
 # as the predicted amount of water taken by birds for zero food uptake.
