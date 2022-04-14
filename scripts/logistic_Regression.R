@@ -37,7 +37,7 @@ logit2 <- glm(admit ~ rank, data = graduate, family = "binomial") # with categor
 
 summary(logit2)
 
-# log-odds = 0.1643 -0.7500*(rank = 2)-0.13647*(rank = 3)-1.6867*(rank =4)
+# log-odds = 0.1643 -0.7500*(rank = 2)-0.13647*(rank = 3)-1.6867*(rank = 4)
 
 # Multiple logistic regression model
 
