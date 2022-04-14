@@ -25,7 +25,7 @@ xtabs(~admit + rank, data = graduate)
 
 str(graduate)
 
-#simple logistic regression model
+# simple logistic regression model
 
 logit1 <- glm(admit ~ gre, data = graduate, family = "binomial") # with continuous variable
 
