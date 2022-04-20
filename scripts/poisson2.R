@@ -3,7 +3,7 @@ library(qcc)
 
 data("gala")
 
-write.csv(gala, file = "data/gala.csv") # exporting tdata
+write.csv(gala, file = "data/gala.csv") # exporting thdata
 
 gala <- read.csv("data/gala.csv")
 
