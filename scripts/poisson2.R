@@ -15,7 +15,7 @@ boxplot(gala$Species, main = "Boxplot of Species")
 
 boxplot(log(gala$Species), main = "Boxplot of natural log of Species")
 
-### MORE TO MOR ADDITIONAL NOTES #######
+### MORE TO MO ADDITIONAL NOTES #######
 
 # Create a poisson model
 fit <- glm(Species ~ Endemics + Area + Elevation + Nearest + Scruz + Adjacent, 
